@@ -454,4 +454,17 @@
 /warn-unused-result.o
 /warn-unused-result.map
 /warn-unused-result-cpp.map
+/access
+/access.exe
+/access.cpp
+/access-cpp
+/access-cpp.exe
+/access-cpp.o
+/access.obj
+/access.lib
+/access-cpp.obj
+/access-cpp.lib
+/access.o
+/access.map
+/access-cpp.map
 /.gitignore

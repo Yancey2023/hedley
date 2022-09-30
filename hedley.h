@@ -1995,6 +1995,60 @@ HEDLEY_DIAGNOSTIC_POP
 #  define HEDLEY_EMPTY_BASES
 #endif
 
+#if defined(HEDLEY_FEATURE_TYPEOF)
+#  undef HEDLEY_FEATURE_TYPEOF
+#endif
+#if \
+  HEDLEY_GCC_VERSION_CHECK(2,95,0) || \
+  defined(__clang__) || \
+  HEDLEY_CRAY_VERSION_CHECK(8,1,0) || \
+  HEDLEY_IBM_VERSION_CHECK(11,1,0) || \
+  HEDLEY_SUNPRO_VERSION_CHECK(5,12,0) || \
+  HEDLEY_TINYC_VERSION_CHECK(0,9,24) || \
+  HEDLEY_PGI_VERSION_CHECK(18,10,0) || \
+  HEDLEY_TI_VERSION_CHECK(6,1,0) || \
+  HEDLEY_INTEL_VERSION_CHECK(13,0,0)
+#  define HEDLEY_FEATURE_TYPEOF 1
+#else
+#  define HEDLEY_FEATURE_TYPEOF 0
+#endif
+
+#if defined(HEDLEY_ACCESS)
+#  undef HEDLEY_ACCESS
+#endif
+#if HEDLEY_GCC_VERSION_CHECK(10,0,0)
+#  define HEDLEY_ACCESS(...)   __attribute__((__access__(__VA_ARGS__)))
+#else
+#  define HEDLEY_ACCESS(...)
+#endif
+
+#if defined(HEDLEY_ERROR_ATTR)
+#  undef HEDLEY_ERROR_ATTR
+#endif
+#if HEDLEY_GCC_VERSION_CHECK(2,95,0)
+#  define HEDLEY_ERROR_ATTR(...)  __attribute__((__error__(__VA_ARGS__)))
+#else
+#  define HEDLEY_ERROR_ATTR(...)
+#endif
+
+#if defined(HEDLEY_USE)
+#undef HEDLEY_USE
+#endif
+#define HEDLEY_USE(x)  ((void)(x))
+
+#if defined(HEDLEY_UNUSED)
+#  undef HEDLEY_UNUSED
+#endif
+#if defined(HEDLEY_MSVC_VERSION)
+#  define HEDLEY_UNUSED __pragma(warning(suppress:4100))
+#elif defined(HEDLEY_GNUC_VERSION)
+#  define HEDLEY_UNUSED  __attribute__((__unused__))
+#elif defined(__LCLINT__)
+#  define HEDLEY_UNUSED   /*@unused@*/
+#else
+#  define HEDLEY_UNUSED
+#endif
+
 /* Remaining macros are deprecated. */
 
 #if defined(HEDLEY_GCC_NOT_CLANG_VERSION_CHECK)

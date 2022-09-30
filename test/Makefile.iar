@@ -41,6 +41,7 @@ TESTS = \
 	visibility.o visibility-cpp.o \
 	warn.o warn-cpp.o \
 	warn-unused-result.o warn-unused-result-cpp.o \
+	access.o access-cpp.o \
 	$(NULL)
 
 CLEANFILES = $(TESTS) \
@@ -79,6 +80,7 @@ CLEANFILES = $(TESTS) \
 	visibility.cpp visibility.o visibility-cpp.o \
 	warn.cpp warn.o warn-cpp.o \
 	warn-unused-result.cpp warn-unused-result.o warn-unused-result-cpp.o \
+	access.cpp access.o access-cpp.o \
 	$(NULL)
 
 all: $(TESTS)
@@ -329,5 +331,12 @@ warn-unused-result.o: warn-unused-result.c
 warn-unused-result.cpp: warn-unused-result.c
 	copy /Y $(?) $(@) >NUL
 warn-unused-result-cpp.o: warn-unused-result.cpp
+	$(CXX) $(CXXFLAGS) --output $(@) $(?)
+
+access.o: access.c
+	$(CC) $(CFLAGS) --output $(@) $(?)
+access.cpp: access.c
+	copy /Y $(?) $(@) >NUL
+access-cpp.o: access.cpp
 	$(CXX) $(CXXFLAGS) --output $(@) $(?)
 

@@ -41,6 +41,7 @@ TESTS = \
 	visibility.exe visibility-cpp.exe \
 	warn.exe warn-cpp.exe \
 	warn-unused-result.exe warn-unused-result-cpp.exe \
+	access.exe access-cpp.exe \
 	$(NULL)
 
 CLEANFILES = $(TESTS) \
@@ -79,6 +80,7 @@ CLEANFILES = $(TESTS) \
 	visibility.cpp visibility.exe visibility-cpp.exe visibility.map visibility-cpp.map \
 	warn.cpp warn.exe warn-cpp.exe warn.map warn-cpp.map \
 	warn-unused-result.cpp warn-unused-result.exe warn-unused-result-cpp.exe warn-unused-result.map warn-unused-result-cpp.map \
+	access.cpp access.exe access-cpp.exe access.map access-cpp.map \
 	$(NULL)
 
 all: $(TESTS)
@@ -329,5 +331,12 @@ warn-unused-result.exe: warn-unused-result.c
 warn-unused-result.cpp: warn-unused-result.c
 	copy /Y $(?) $(@) >NUL
 warn-unused-result-cpp.exe: warn-unused-result.cpp
+	$(CXX) $(CXXFLAGS) -o $(@) $(?)
+
+access.exe: access.c
+	$(CC) $(CFLAGS) -o $(@) $(?)
+access.cpp: access.c
+	copy /Y $(?) $(@) >NUL
+access-cpp.exe: access.cpp
 	$(CXX) $(CXXFLAGS) -o $(@) $(?)
 
