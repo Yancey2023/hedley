@@ -1,3 +1,8 @@
+#### Version 17
+- Fixed CMakeLists syntax and updated minimum cmake version to 3.27.2
+- Remove generated makefiles.
+- Renamed COYPING to LICENSE.
+
 #### Version 16
 - Work around some false advertisement in latest ICC (nemequ)
 - Add __declspec(noalias) for any MSVC (OfekShilon)
