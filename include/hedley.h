@@ -10,11 +10,11 @@
  * SPDX-License-Identifier: CC0-1.0
  */
 
-#if !defined(HEDLEY_VERSION) || (HEDLEY_VERSION < 16)
+#if !defined(HEDLEY_VERSION) || (HEDLEY_VERSION < 17)
 #if defined(HEDLEY_VERSION)
 #  undef HEDLEY_VERSION
 #endif
-#define HEDLEY_VERSION 16
+#define HEDLEY_VERSION 17
 
 #if defined(HEDLEY_STRINGIFY_EX)
 #  undef HEDLEY_STRINGIFY_EX
@@ -782,8 +782,8 @@
 #  define HEDLEY_DIAGNOSTIC_POP
 #endif
 
-/* HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_ is for
-   HEDLEY INTERNAL USE ONLY.  API subject to change without notice. */
+ /* HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_ is for
+	HEDLEY INTERNAL USE ONLY.  API subject to change without notice. */
 #if defined(HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_)
 #  undef HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_
 #endif
@@ -2049,7 +2049,7 @@ HEDLEY_DIAGNOSTIC_POP
 #  define HEDLEY_UNUSED
 #endif
 
-/* Remaining macros are deprecated. */
+   /* Remaining macros are deprecated. */
 
 #if defined(HEDLEY_GCC_NOT_CLANG_VERSION_CHECK)
 #  undef HEDLEY_GCC_NOT_CLANG_VERSION_CHECK
