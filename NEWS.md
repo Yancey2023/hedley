@@ -1,5 +1,5 @@
 #### Version 17
-- Fixed CMakeLists syntax and updated minimum cmake version to 3.27.2
+- Fixed CMakeLists syntax and updated minimum cmake version to 3.21
 - Remove generated makefiles.
 - Renamed COYPING to LICENSE.
 
